@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class ImageColorsAnalyzer {
 
     public CompletableFuture<AnalysisResult> analyze(String imageUrl) {
-        return CompletableFuture.supplyAsync(()->{
+        return CompletableFuture.supplyAsync(() -> {
             Map<Integer, Integer> imageColors = getImageColorMap(imageUrl);
             List<Integer> topColors = getTop3Colors(imageColors.entrySet());
             return new AnalysisResult(imageUrl, topColors);
@@ -28,7 +28,7 @@ public class ImageColorsAnalyzer {
                 .map(Map.Entry::getKey).collect(Collectors.toList());
     }
 
-    private Map<Integer, Integer> getImageColorMap(String imageUrl){
+    private Map<Integer, Integer> getImageColorMap(String imageUrl) {
         try {
             BufferedImage image = ImageIO.read(new URL(imageUrl));
             Map<Integer, Integer> imageColors = new HashMap<>();
@@ -40,7 +40,7 @@ public class ImageColorsAnalyzer {
             }
             return imageColors;
         } catch (IOException e) {
-           throw new RuntimeException(e.getMessage());
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

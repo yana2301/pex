@@ -10,6 +10,7 @@ public class AnalysisResult {
         this.url = url;
         this.colors = colors;
     }
+
     public String toString() {
         StringBuilder result = new StringBuilder(url);
         result.append(CSV_SEPARATOR);
@@ -20,6 +21,6 @@ public class AnalysisResult {
     }
 
     private static String rgbToString(Integer rgbInt) {
-        return "#"+Integer.toHexString(rgbInt  & 0xffffff).toUpperCase();
+        return "#" + Integer.toHexString(rgbInt & 0xffffff).toUpperCase();
     }
 }

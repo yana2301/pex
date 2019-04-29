@@ -15,7 +15,7 @@ public class Solution {
     public static void main(String[] args) {
         ImageColorsAnalyzer analyzer = new ImageColorsAnalyzer();
         try (Stream<String> stream = Files.lines(Paths.get(INPUT_FILE));
-            BufferedWriter topColors = new BufferedWriter(new FileWriter(RESULT_FILE))) {
+             BufferedWriter topColors = new BufferedWriter(new FileWriter(RESULT_FILE))) {
             CompletableFuture[] analyzeTasks = stream.map(line ->
                     analyzer.analyze(line)
                             .thenAccept(result -> {
@@ -30,7 +30,7 @@ public class Solution {
         }
     }
 
-     private static void writeResult(BufferedWriter topColors, AnalysisResult result) {
+    private static void writeResult(BufferedWriter topColors, AnalysisResult result) {
         try {
             topColors.write(result.toString());
             topColors.newLine();
